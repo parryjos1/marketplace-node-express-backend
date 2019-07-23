@@ -8,4 +8,7 @@ module.exports = (app) => {
       .get(controller.usersIndex)
       .post(controller.usersCreate)
 
+  app.route('/login')
+      .post(controller.usersLogin)
+
 };
