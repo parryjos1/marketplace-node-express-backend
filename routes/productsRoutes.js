@@ -5,6 +5,7 @@ const controller = require('../controllers/productsController');
 module.exports = (app) => {
 
   app.route('/products')
-      .get(controller.productsIndex)
+      // .get(controller.productsIndex)
+      .post(controller.productsIndex)
 
 };

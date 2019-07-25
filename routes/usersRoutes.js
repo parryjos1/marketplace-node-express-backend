@@ -1,14 +1,18 @@
 
 //Link the controller
+
+
+//Link the controller
 const controller = require('../controllers/usersController');
 
-module.exports = (app) => {
+module.exports = (app, passport) => {
 
   app.route('/users')
-      .get(controller.usersIndex)
+  // app.route('/users')
+      .get( passport.authenticate('jwt', { session: false }), controller.usersIndex )
       .post(controller.usersCreate)
 
-  app.route('/login')
-      .post(controller.usersLogin)
+  app.route('/cart')
+       .get( passport.authenticate('jwt', { session: false }), controller.usersCart )
 
 };

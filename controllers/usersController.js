@@ -4,6 +4,10 @@ const saltRounds = 10;
 
 module.exports = {
 
+  usersCart(req, res) {
+    res.json({status: 'success', user: req.user});
+  },
+
   usersIndex(req, res) {
     // console.log('hello from the user index');
     // res.send('yo we here!')
@@ -42,15 +46,15 @@ module.exports = {
   }, // end usersCreate
 
   usersLogin( req, res) {
-    console.log(req.body);
-
-    //QUESTION for luke --> what is req.db ??
-    console.log(req.body.email);
-    req.db.collection('users').findOne({email: req.body.username})
-    .then(user => {
-      console.log(user);
-      if(user) return res.status(200).json({message: "We found him"})
-    })
+    console.log('USERS LOGIN ROUTE', req.body);
+    //
+    // //TODO QUESTION for luke --> what is req.db ??
+    // console.log(req.body.email);
+    // req.db.collection('users').findOne({email: req.body.username})
+    // .then(user => {
+    //   console.log(user);
+    //   if(user) return res.status(200).json({message: "We found him"})
+    // })
     // res.json({'all good'})
 
   }
