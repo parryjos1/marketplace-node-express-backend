@@ -19,6 +19,11 @@ module.exports = {
       }
     });
 
-  } // end of productsIndex
+  }, // end of productsIndex
+
+  productsSellUser(req, res) {
+    res.json({status: 'success', user: req.user});
+  }, // end of productsIndex
+
 
 };

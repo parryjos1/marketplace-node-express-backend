@@ -194,7 +194,7 @@ const { ObjectID } = require('mongodb');
 // });
 
 // require the routes
-const productsRoutes = require('./routes/productsRoutes')(app);
+const productsRoutes = require('./routes/productsRoutes')(app, passport);
 
 const authRoutes = require('./routes/authRoutes')(app, passport);
 
