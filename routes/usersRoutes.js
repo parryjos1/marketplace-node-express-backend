@@ -15,4 +15,7 @@ module.exports = (app, passport) => {
   app.route('/cart')
        .get( passport.authenticate('jwt', { session: false }), controller.usersCart )
 
+  app.route('/cartadd')
+       .post( passport.authenticate('jwt', { session: false }), controller.usersCartAdd )
+
 };

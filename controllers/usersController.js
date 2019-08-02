@@ -57,6 +57,29 @@ module.exports = {
     // })
     // res.json({'all good'})
 
-  }
+  },
+
+  usersCartAdd(req, res) {
+    console.log(req.body)
+
+        // req.db.collection('products').updateOne({_id: ObjectId(req.)}, {$set: {"newField":"Jakarta"}})
+        // req.db.collection('users').updateOne({_id: ObjectId(req.)}, {$set: {"newField":"Jakarta", "anotherField":"yelllooowww"}})
+
+        var mongo = require('mongodb');
+        var o_id = new mongo.ObjectID(req.body.seller);
+
+        // console.log(o_id);
+        //
+        // db.users.updateOne({_id: ObjectId("5d39105bd7d2e896d235b8c2")}, {$set: {"cart": {"price": "110"}}})
+        //
+        // req.db.collection('users').updateOne( { _id: o_id }, {$set: {"cart": {"price": "110"}}})  )
+
+        // db.users.updateOne({_id: ObjectId("5d39105bd7d2e896d235b8c2")}, {$set: {"shop": ['item']}})
+        //
+        // db.users.updateOne({_id: ObjectId("5d39105bd7d2e896d235b8c2")}, {$push: { "baker": "red"}})
+
+        req.db.collection('users').updateOne({ _id: o_id }, {$push: { "cart": req.body.productID}})
+    res.send('hello from the user tab')
+  },
 
 };
